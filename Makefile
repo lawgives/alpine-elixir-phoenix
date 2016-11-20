@@ -1,7 +1,7 @@
 .PHONY: help
 
 VERSION ?= `cat VERSION`
-IMAGE_NAME ?= bitwalker/alpine-elixir-phoenix
+IMAGE_NAME ?= legalio/alpine-elixir
 
 help:
 	@echo "$(IMAGE_NAME):$(VERSION)"
@@ -11,8 +11,7 @@ test: ## Test the Docker image
 	docker run --rm -it $(IMAGE_NAME):$(VERSION) elixir --version
 
 build: ## Rebuild the Docker image
-	docker build --force-rm -t $(IMAGE_NAME):$(VERSION) -t $(IMAGE_NAME):latest - < ./Dockerfile
+	docker build --force-rm -t $(IMAGE_NAME):$(VERSION) - < ./Dockerfile
 
 release: build ## Rebuild and release the Docker image to Docker Hub
 	docker push $(IMAGE_NAME):$(VERSION)
-	docker push $(IMAGE_NAME):latest
