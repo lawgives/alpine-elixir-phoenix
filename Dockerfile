@@ -15,7 +15,8 @@ ENV REFRESHED_AT=2016-11-19 \
     TERM=xterm \
     LANG="en_US.UTF-8" \
     ELIXIR_VERSION=1.3.4 \
-    ELIXIR_DOWNLOAD_SHA256=f5ee5353d8dbe610b1dfd276d22f2038d57d9a7d3cea69dac10da2b098bd2033
+    ELIXIR_DOWNLOAD_SHA256=f5ee5353d8dbe610b1dfd276d22f2038d57d9a7d3cea69dac10da2b098bd2033 \
+    PATH=/home/app/.mix:${PATH}
 
 
 # Compile and install Elixir
@@ -36,8 +37,9 @@ RUN set -ex \
     && rm -r /usr/src/elixir
 
 # Install Hex+Rebar
-RUN mix local.hex --force && \
-    mix local.rebar --force
+RUN su-exec app mix local.hex --force && \
+    su-exec app mix local.rebar --force && \
+    chown -R app:app /home/app
 
 WORKDIR /home/app
 
