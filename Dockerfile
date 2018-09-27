@@ -1,4 +1,4 @@
-FROM legalio/alpine-erlang:21.0.9
+FROM legalio/alpine-erlang:21.1
 MAINTAINER Ho-SHeng Hsiao <hosh@legal.io>
 
 # Original mantainer: (bitwalker)
