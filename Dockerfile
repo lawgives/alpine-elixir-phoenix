@@ -1,7 +1,7 @@
-FROM legalio/alpine-erlang:19.1.6
+FROM legalio/alpine-erlang:21.0.9
 MAINTAINER Ho-SHeng Hsiao <hosh@legal.io>
 
-# Original mantainer:
+# Original mantainer: (bitwalker)
 #MAINTAINER Paul Schoenfelder <paulschoenfelder@gmail.com>
 
 # The build is based on: http://git.alpinelinux.org/cgit/aports/tree/community/elixir/APKBUILD
@@ -10,12 +10,12 @@ MAINTAINER Ho-SHeng Hsiao <hosh@legal.io>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2016-11-19 \
+ENV REFRESHED_AT=2018-09-27 \
     # Set this so that CTRL+G works properly
     TERM=xterm \
     LANG="en_US.UTF-8" \
-    ELIXIR_VERSION=1.3.4 \
-    ELIXIR_DOWNLOAD_SHA256=f5ee5353d8dbe610b1dfd276d22f2038d57d9a7d3cea69dac10da2b098bd2033 \
+    ELIXIR_VERSION=1.7.3 \
+    ELIXIR_DOWNLOAD_SHA256=c9beabd05e820ee83a56610cf2af3f34acf3b445c8fabdbe98894c886d2aa28e \
     PATH=/home/app/.mix:${PATH}
 
 
