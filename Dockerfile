@@ -10,7 +10,7 @@ MAINTAINER Ho-SHeng Hsiao <hosh@legal.io>
 # is updated with the current date. It will force refresh of all
 # of the base images and things like `apt-get update` won't be using
 # old cached versions when the Dockerfile is built.
-ENV REFRESHED_AT=2018-09-27 \
+ENV REFRESHED_AT=2018-09-28 \
     # Set this so that CTRL+G works properly
     TERM=xterm \
     LANG="en_US.UTF-8" \
@@ -21,6 +21,7 @@ ENV REFRESHED_AT=2018-09-27 \
 
 # Compile and install Elixir
 RUN set -ex \
+    && apk add --no-cache inotify-tools \
     && apk add --no-cache --virtual .elixir-builddeps \
        git wget curl make tar \
     && wget -O elixir.tar.gz "https://github.com/elixir-lang/elixir/archive/v${ELIXIR_VERSION}.tar.gz" \
